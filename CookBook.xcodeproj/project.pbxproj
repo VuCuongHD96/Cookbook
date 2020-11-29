@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10EDCAFF2573DFC800A62271 /* SectionDataMealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EDCAFE2573DFC800A62271 /* SectionDataMealDetail.swift */; };
 		4C12BA54256F40540017607F /* MealDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12BA53256F40540017607F /* MealDetailNavigator.swift */; };
 		4C12BA56256F40A00017607F /* MealDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12BA55256F40A00017607F /* MealDetailUseCase.swift */; };
 		4C12BA58256F466F0017607F /* MealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12BA57256F466F0017607F /* MealRequest.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10EDCAFE2573DFC800A62271 /* SectionDataMealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataMealDetail.swift; sourceTree = "<group>"; };
 		4C12BA53256F40540017607F /* MealDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailNavigator.swift; sourceTree = "<group>"; };
 		4C12BA55256F40A00017607F /* MealDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailUseCase.swift; sourceTree = "<group>"; };
 		4C12BA57256F466F0017607F /* MealRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRequest.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				4C12BA53256F40540017607F /* MealDetailNavigator.swift */,
 				4C12BA55256F40A00017607F /* MealDetailUseCase.swift */,
 				4C12BA59256F5CD80017607F /* MealDetailViewModel.swift */,
+				10EDCAFE2573DFC800A62271 /* SectionDataMealDetail.swift */,
 			);
 			path = MealDetail;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				4CB8C59E2548034F008F7F59 /* MealByCategoryRequest.swift in Sources */,
 				4C21904A2546C4E300173699 /* URLs.swift in Sources */,
 				4C12BA56256F40A00017607F /* MealDetailUseCase.swift in Sources */,
+				10EDCAFF2573DFC800A62271 /* SectionDataMealDetail.swift in Sources */,
 				4C2190572546CB9100173699 /* StoryBoards.swift in Sources */,
 				4C21903E2546C4E300173699 /* CategoryRepository.swift in Sources */,
 				4C2190452546C4E300173699 /* HTTPStatusCode.swift in Sources */,
@@ -592,7 +596,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -646,7 +650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
