@@ -25,6 +25,7 @@ extension MealDetailViewModel: ViewModelType {
     struct Output {
         var mealName: Driver<String>
         var meal: Driver<Meal>
+        var sections: Driver<[SectionDataMealDetail]>
     }
     
     func transform(_ input: Input) -> Output {
@@ -42,12 +43,20 @@ extension MealDetailViewModel: ViewModelType {
                 .asDriverOnErrorJustComplete()
         }
         
-        let mealName = input.loadTrigger
-            .map { _ in
-                return self.mealInput.name
+        let mealName = meal.map { meal -> String in
+                meal.name
         }
         
+        let sections = meal.map { meal -> [SectionDataMealDetail] in
+            [
+                SectionDataMealDetail(header: "AÄaaa", items: meal.getResourceArray()),
+                SectionDataMealDetail(header: "BBBB", items: meal.getInstructions())
+            ]
+        }
+        .asDriver()
+        
         return Output(mealName: mealName,
-                      meal: meal)
+                      meal: meal,
+                      sections: sections)
     }
 }

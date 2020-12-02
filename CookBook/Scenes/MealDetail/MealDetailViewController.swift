@@ -10,14 +10,19 @@ import UIKit
 import Reusable
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 final class MealDetailViewController: UIViewController, BindableType {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var viewModel: MealDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Meal Detail"
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 470
+        tableView.delegate = self
     }
     
     func bindViewModel() {
@@ -33,6 +38,35 @@ final class MealDetailViewController: UIViewController, BindableType {
                 print(meal)
             })
             .disposed(by: rx.disposeBag)
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionDataMealDetail>(
+            configureCell: { dataSource, tableView, indexPath, item in
+                var cell = UITableViewCell()
+                let section = indexPath.section
+                switch section {
+                case 0:
+                    cell = tableView.dequeueReusableCell(withIdentifier: "CellA", for: indexPath)
+                case 1:
+                    cell = tableView.dequeueReusableCell(withIdentifier: "CellB", for: indexPath)
+                default: break
+                }
+                cell.textLabel?.text = item
+                return cell
+        })
+        
+        dataSource.titleForHeaderInSection = { dataSource, section in
+            return dataSource.sectionModels[section].header
+        }
+        
+        output.sections
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: rx.disposeBag)
+    }
+}
+
+extension MealDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 

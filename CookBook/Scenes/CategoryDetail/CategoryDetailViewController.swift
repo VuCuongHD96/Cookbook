@@ -29,7 +29,7 @@ final class CategoryDetailViewController: UIViewController, BindableType {
     // MARK: - Views
     private func setupView() {
         navigationItem.title = "Category Detail"
-        tableView.dequeueReusableCell(for: TestTableViewCell.self)
+        tableView.register(cellType: TestTableViewCell.self)
     }
     
     // MARK: - Data
@@ -40,10 +40,6 @@ final class CategoryDetailViewController: UIViewController, BindableType {
         let output = viewModel.transform(input)
         output.meals
             .drive(tableView.rx.items(cellIdentifier: "cell")) { row, element, cell in
-                //                let indexPath = IndexPath(item: index, section: 0)
-                //                let cell: CategoryCell = tableView.dequeueReusableCell(for: indexPath)
-                //                cell.setContent(data: category)
-                //                return cell
                 cell.textLabel?.text = element.name
         }
         .disposed(by: rx.disposeBag)
@@ -71,16 +67,6 @@ final class CategoryDetailViewController: UIViewController, BindableType {
         output.backed
             .drive()
             .disposed(by: rx.disposeBag)
-        
-        
-        // Start Test
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Int>>(
-          configureCell: { dataSource, tableView, indexPath, item in
-            let cell: TestTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.textLabel?.text = "Item \(item.anInt): \(item.aString) - \(item.aCGPoint.x):\(item.aCGPoint.y)"
-            return cell
-        }) 
-        // End Test
     }
 }
 

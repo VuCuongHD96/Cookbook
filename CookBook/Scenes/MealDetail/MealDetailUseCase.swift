@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 protocol MealDetailUseCaseType {
     func getMeal(meal: Meal) -> Observable<[Meal]>

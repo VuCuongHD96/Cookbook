@@ -14,6 +14,11 @@ struct FoodResource: Hashable {
     var measure: String
 }
 
+protocol MealType {
+    func getResourceArray() -> [String]
+    func getInstructions() -> [String]
+}
+
 struct Meal {
     struct Constants {
         static let endArray = 20
@@ -27,6 +32,20 @@ struct Meal {
     var category: String
     var instructions: String
     var resources: [FoodResource]
+}
+
+extension Meal: MealType {
+    func getResourceArray() -> [String] {
+        resources.map { foodResource -> String in
+            return foodResource.measure + " " + foodResource.ingredient
+        }
+    }
+    
+    func getInstructions() -> [String] {
+        let instructionArray = instructions.components(separatedBy: .newlines)
+            .filter { $0 != "" }
+        return instructionArray
+    }
 }
 
 extension Meal {
