@@ -21,8 +21,8 @@ final class MealDetailViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 470
-        tableView.delegate = self
+        tableView.estimatedRowHeight = 100
+        tableView.register(cellType: IngredientTableViewCell.self)
     }
     
     func bindViewModel() {
@@ -41,17 +41,21 @@ final class MealDetailViewController: UIViewController, BindableType {
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionDataMealDetail>(
             configureCell: { dataSource, tableView, indexPath, item in
-                var cell = UITableViewCell()
                 let section = indexPath.section
+                let row = indexPath.row
                 switch section {
                 case 0:
-                    cell = tableView.dequeueReusableCell(withIdentifier: "CellA", for: indexPath)
+                    let cell: IngredientTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                    cell.setContent(data: item)
+                    return cell
                 case 1:
+                    var cell = UITableViewCell()
                     cell = tableView.dequeueReusableCell(withIdentifier: "CellB", for: indexPath)
+                    cell.textLabel?.text = String(row)
+                    return cell
                 default: break
                 }
-                cell.textLabel?.text = item
-                return cell
+                return UITableViewCell()
         })
         
         dataSource.titleForHeaderInSection = { dataSource, section in
