@@ -49,8 +49,8 @@ extension MealDetailViewModel: ViewModelType {
         
         let sections = meal.map { meal -> [SectionDataMealDetail] in
             [
-                SectionDataMealDetail(header: "AÄaaa", items: meal.getResourceArray()),
-                SectionDataMealDetail(header: "BBBB", items: meal.getInstructions())
+                SectionDataMealDetail(header: "Ingredients", items: meal.getResourceArray()),
+                SectionDataMealDetail(header: "Instructions", items: meal.getInstructions())
             ]
         }
         .asDriver()
