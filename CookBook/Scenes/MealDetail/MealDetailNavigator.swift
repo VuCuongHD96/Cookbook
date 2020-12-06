@@ -9,8 +9,13 @@
 import UIKit
 
 protocol MealDetailNavigatorType {
+    func goBack()
 }
 
 struct MealDetailNavigator: MealDetailNavigatorType {
     unowned let navigationController: UINavigationController
+
+    func goBack() {
+        navigationController.popViewController(animated: true)
+    }
 }

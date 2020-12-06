@@ -24,6 +24,7 @@ struct CategoryDetailNavigator: CategoryDetailNavigatorType {
                                             useCase: useCase,
                                             mealInput: mealInput)
         viewController.bindViewModel(to: viewModel)
+        navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(viewController, animated: true)
     }
     

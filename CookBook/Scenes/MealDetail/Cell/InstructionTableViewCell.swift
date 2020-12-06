@@ -7,10 +7,21 @@
 //
 
 import UIKit
+import Reusable
 
-final class InstructionTableViewCell: UITableViewCell {
+final class InstructionTableViewCell: UITableViewCell, NibReusable {
 
+    // MARK: - Outlet
+    @IBOutlet private weak var numberLabel: UILabel!
+    @IBOutlet private weak var instructionName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    // MARK: - Data
+    func setContent(index: Int, data: String) {
+        numberLabel.text = String(index + 1)
+        instructionName.text = data
     }
 }
