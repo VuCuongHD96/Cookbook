@@ -20,11 +20,14 @@ struct MealDetailViewModel {
 extension MealDetailViewModel: ViewModelType {
     struct Input {
         var loadTrigger: Driver<Void>
+        var backTrigger: Driver<Void>
     }
     
     struct Output {
         var mealName: Driver<String>
         var meal: Driver<Meal>
+        var mealImage: Driver<String>
+        var backed: Driver<Void>
         var sections: Driver<[SectionDataMealDetail]>
     }
     
@@ -47,9 +50,18 @@ extension MealDetailViewModel: ViewModelType {
                 meal.name
         }
         
+        let mealImage = meal
+            .map { meal -> String in
+                meal.imageString
+        }
+        
+        let backed = input.backTrigger
+            .map { _ in
+                self.navigator.goBack()
+        }
+        
         let sections = meal.map { meal -> [SectionDataMealDetail] in
-            [
-                SectionDataMealDetail(header: "Ingredients", items: meal.getResourceArray()),
+            [SectionDataMealDetail(header: "Ingredients", items: meal.getResourceArray()),
                 SectionDataMealDetail(header: "Instructions", items: meal.getInstructions())
             ]
         }
@@ -57,6 +69,8 @@ extension MealDetailViewModel: ViewModelType {
         
         return Output(mealName: mealName,
                       meal: meal,
+                      mealImage: mealImage,
+                      backed: backed,
                       sections: sections)
     }
 }

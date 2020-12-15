@@ -41,6 +41,7 @@ final class CategoryDetailViewController: UIViewController, BindableType {
         output.meals
             .drive(tableView.rx.items(cellIdentifier: "cell")) { row, element, cell in
                 cell.textLabel?.text = element.name
+                cell.textLabel?.numberOfLines = 0
         }
         .disposed(by: rx.disposeBag)
         

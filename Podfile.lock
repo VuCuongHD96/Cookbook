@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (5.2.2)
   - Differentiator (4.0.1)
+  - MagicalRecord (2.4.0):
+    - MagicalRecord/Core (= 2.4.0)
+  - MagicalRecord/Core (2.4.0)
   - MGArchitecture (2.0.1):
     - RxCocoa (~> 5.1)
     - RxSwift (~> 5.1)
@@ -30,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord`)
   - MGArchitecture
   - "NSObject+Rx"
   - ObjectMapper
@@ -55,9 +59,19 @@ SPEC REPOS:
     - SkeletonView
     - Then
 
+EXTERNAL SOURCES:
+  MagicalRecord:
+    :git: https://github.com/magicalpanda/MagicalRecord
+
+CHECKOUT OPTIONS:
+  MagicalRecord:
+    :commit: 6031f608b79c1d6802007aaed6efd100e11f59ba
+    :git: https://github.com/magicalpanda/MagicalRecord
+
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  MagicalRecord: 1f22a766156474d9f46a9b1e1ce59ca9e37830fc
   MGArchitecture: 7d586fc5fe15c3fa86dc06b0e6a06d7aafbf8051
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -70,6 +84,6 @@ SPEC CHECKSUMS:
   SkeletonView: 14fbe9702c7fb5c5f011b44ac3ae99fc73155726
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 5c6c867b227c53bb34e0f0a87b81e81f4b6832f4
+PODFILE CHECKSUM: cbec3f73aefac89b5f39528cfb2d66201449b164
 
 COCOAPODS: 1.9.3
