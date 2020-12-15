@@ -281,6 +281,7 @@
 		4C21904C2546C8BD00173699 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4C4710B2257F9751008D4A7B /* Favorite */,
 				4C6EB692254A59C0002037DA /* MealDetail */,
 				4C21904E2546CB9000173699 /* StoryBoards */,
 				4C21904D2546C8E500173699 /* Category */,
@@ -308,6 +309,13 @@
 				4C2190512546CB9000173699 /* StoryBoards.swift */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		4C4710B2257F9751008D4A7B /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		4C6EB692254A59C0002037DA /* MealDetail */ = {

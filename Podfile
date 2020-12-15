@@ -25,4 +25,8 @@ target 'CookBook' do
 
     #API
 	pod 'Alamofire'
+
+    #Database
+	pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord'
+
 end
