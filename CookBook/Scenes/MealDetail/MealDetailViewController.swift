@@ -11,32 +11,56 @@ import Reusable
 import RxCocoa
 import RxSwift
 import RxDataSources
+import SkeletonView
 
 final class MealDetailViewController: UIViewController, BindableType {
     
-    @IBOutlet weak var tableView: UITableView!
+    // MARK: - Outlet
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var mealImageView: UIImageView!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
+    // MARK: - Properties
     var viewModel: MealDetailViewModel!
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
-        tableView.register(cellType: IngredientTableViewCell.self)
+        setupData()
+        setupView()
+    }
+    
+    // MARK: - View
+    private func setupView() {
+        mealImageView.showAnimatedGradientSkeleton()
+    }
+    
+    // MARK: - Data
+    private func setupData() {
+        tableView.do {
+            $0.rowHeight = UITableView.automaticDimension
+            $0.estimatedRowHeight = 100
+            $0.register(cellType: IngredientTableViewCell.self)
+            $0.register(cellType: InstructionTableViewCell.self)
+        }
     }
     
     func bindViewModel() {
-        let input = MealDetailViewModel.Input(loadTrigger: Driver.just(Void()))
+        let input = MealDetailViewModel.Input(loadTrigger: Driver.just(Void()),
+                                              backTrigger: backButton.rx.tap.asDriver())
         let output = viewModel.transform(input)
         
         output.mealName
             .drive(navigationItem.rx.title)
             .disposed(by: rx.disposeBag)
         
-        output.meal
-            .drive(onNext: { (meal) in
-                print(meal)
-            })
+        output.mealImage
+            .drive(avatarBinding)
+            .disposed(by: rx.disposeBag)
+        
+        output.backed
+            .drive()
             .disposed(by: rx.disposeBag)
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionDataMealDetail>(
@@ -49,9 +73,8 @@ final class MealDetailViewController: UIViewController, BindableType {
                     cell.setContent(data: item)
                     return cell
                 case 1:
-                    var cell = UITableViewCell()
-                    cell = tableView.dequeueReusableCell(withIdentifier: "CellB", for: indexPath)
-                    cell.textLabel?.text = String(row)
+                    let cell: InstructionTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                    cell.setContent(index: row, data: item)
                     return cell
                 default: break
                 }
@@ -59,7 +82,7 @@ final class MealDetailViewController: UIViewController, BindableType {
         })
         
         dataSource.titleForHeaderInSection = { dataSource, section in
-            return dataSource.sectionModels[section].header
+            return dataSource.sectionModels[section].header 
         }
         
         output.sections
@@ -68,9 +91,15 @@ final class MealDetailViewController: UIViewController, BindableType {
     }
 }
 
-extension MealDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+extension MealDetailViewController {
+    var avatarBinding: Binder<String> {
+        return Binder(self) { viewcontroller, imageUrl in
+            let url = URL(string: imageUrl)
+            viewcontroller.mealImageView.sd_setImage(with: url) { [weak self] (_, _, _, _) in
+                guard let self = self else { return }
+                self.mealImageView.hideSkeleton()
+            }
+        }
     }
 }
 
