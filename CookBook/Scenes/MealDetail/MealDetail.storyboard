@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +19,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="4WR-QG-lv3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="303"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="loA-KG-8f8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="192" id="GsC-fs-prW"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                             </userDefinedRuntimeAttributes>
@@ -69,31 +72,54 @@
                                             </constraints>
                                             <state key="normal" image="Heartempty"/>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCV-hd-Dq6">
+                                            <rect key="frame" x="16" y="208" width="343" height="17.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXk-0G-Lia">
+                                            <rect key="frame" x="16" y="233.5" width="343" height="24"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gki-WQ-Edg">
+                                            <rect key="frame" x="171.5" y="272.5" width="32" height="32"/>
+                                            <state key="normal" image="youtube"/>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstItem="xZc-Nk-9Jz" firstAttribute="width" secondItem="uW2-OK-LAN" secondAttribute="width" id="0fb-3C-OrX"/>
                                         <constraint firstItem="uW2-OK-LAN" firstAttribute="leading" secondItem="4WR-QG-lv3" secondAttribute="leading" constant="16" id="3ge-AQ-dmH"/>
+                                        <constraint firstItem="gki-WQ-Edg" firstAttribute="centerX" secondItem="4WR-QG-lv3" secondAttribute="centerX" id="5G0-Cq-3qR"/>
                                         <constraint firstItem="AVG-qw-o59" firstAttribute="height" secondItem="EdJ-nw-7Y7" secondAttribute="height" id="6Dg-3N-5Qi"/>
                                         <constraint firstItem="AVG-qw-o59" firstAttribute="centerX" secondItem="EdJ-nw-7Y7" secondAttribute="centerX" id="8i8-sT-c3M"/>
                                         <constraint firstAttribute="trailing" secondItem="loA-KG-8f8" secondAttribute="trailing" id="9DJ-CT-2bO"/>
+                                        <constraint firstItem="VCV-hd-Dq6" firstAttribute="top" secondItem="loA-KG-8f8" secondAttribute="bottom" constant="16" id="BX9-LV-ZJZ"/>
                                         <constraint firstItem="AVG-qw-o59" firstAttribute="width" secondItem="EdJ-nw-7Y7" secondAttribute="width" id="Dz4-nA-wej"/>
                                         <constraint firstItem="uW2-OK-LAN" firstAttribute="top" secondItem="4WR-QG-lv3" secondAttribute="top" constant="20" id="Ioh-zt-K5L"/>
                                         <constraint firstItem="EdJ-nw-7Y7" firstAttribute="centerY" secondItem="uW2-OK-LAN" secondAttribute="centerY" id="LtP-v2-3n0"/>
+                                        <constraint firstItem="mXk-0G-Lia" firstAttribute="top" secondItem="VCV-hd-Dq6" secondAttribute="bottom" constant="8" id="M1p-Bb-GRh"/>
                                         <constraint firstItem="xZc-Nk-9Jz" firstAttribute="centerY" secondItem="uW2-OK-LAN" secondAttribute="centerY" id="QnO-Ot-eFN"/>
+                                        <constraint firstItem="VCV-hd-Dq6" firstAttribute="leading" secondItem="4WR-QG-lv3" secondAttribute="leading" constant="16" id="SWO-Sv-X3L"/>
                                         <constraint firstAttribute="trailing" secondItem="EdJ-nw-7Y7" secondAttribute="trailing" constant="16" id="TKz-g0-bOQ"/>
                                         <constraint firstItem="loA-KG-8f8" firstAttribute="top" secondItem="4WR-QG-lv3" secondAttribute="top" id="VbO-0h-WzX"/>
-                                        <constraint firstAttribute="bottom" secondItem="loA-KG-8f8" secondAttribute="bottom" id="VzF-29-cKk"/>
                                         <constraint firstItem="xZc-Nk-9Jz" firstAttribute="height" secondItem="uW2-OK-LAN" secondAttribute="height" id="WhY-Qs-ouL"/>
                                         <constraint firstItem="uW2-OK-LAN" firstAttribute="width" secondItem="EdJ-nw-7Y7" secondAttribute="width" id="Y9U-zV-N1n"/>
+                                        <constraint firstItem="mXk-0G-Lia" firstAttribute="leading" secondItem="VCV-hd-Dq6" secondAttribute="leading" id="ZOs-gs-6i3"/>
+                                        <constraint firstItem="mXk-0G-Lia" firstAttribute="trailing" secondItem="VCV-hd-Dq6" secondAttribute="trailing" id="aO2-fC-Kle"/>
                                         <constraint firstItem="loA-KG-8f8" firstAttribute="leading" secondItem="4WR-QG-lv3" secondAttribute="leading" id="gpf-D2-69M"/>
+                                        <constraint firstAttribute="trailing" secondItem="VCV-hd-Dq6" secondAttribute="trailing" constant="16" id="iRg-oW-2wD"/>
                                         <constraint firstItem="xZc-Nk-9Jz" firstAttribute="centerX" secondItem="uW2-OK-LAN" secondAttribute="centerX" id="thk-vM-GDL"/>
+                                        <constraint firstItem="gki-WQ-Edg" firstAttribute="top" secondItem="mXk-0G-Lia" secondAttribute="bottom" constant="15" id="uOQ-15-gtB"/>
                                         <constraint firstItem="AVG-qw-o59" firstAttribute="centerY" secondItem="EdJ-nw-7Y7" secondAttribute="centerY" id="w8T-Ib-4Fy"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellA" id="sKg-Di-DAu">
-                                        <rect key="frame" x="0.0" y="247.5" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="358.5" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sKg-Di-DAu" id="KvW-AT-oVJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -102,7 +128,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellB" id="spd-OC-7Xl">
-                                        <rect key="frame" x="0.0" y="291" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="402" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="spd-OC-7Xl" id="pTu-5i-i3f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -125,9 +151,12 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="backButton" destination="uW2-OK-LAN" id="Azv-aM-8gH"/>
+                        <outlet property="categoryLabel" destination="VCV-hd-Dq6" id="0Yg-eg-F9K"/>
                         <outlet property="favoriteButton" destination="EdJ-nw-7Y7" id="3Cd-XH-yWn"/>
                         <outlet property="mealImageView" destination="loA-KG-8f8" id="mM7-9b-OlF"/>
+                        <outlet property="mealNameLabel" destination="mXk-0G-Lia" id="JXa-FV-bF1"/>
                         <outlet property="tableView" destination="s0p-RY-6Bl" id="jm7-Uz-SDF"/>
+                        <outlet property="youtubeButton" destination="gki-WQ-Edg" id="Z6J-ku-27T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft4-Zc-vnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -138,5 +167,6 @@
     <resources>
         <image name="Heartempty" width="18" height="16"/>
         <image name="arrowbackwhite" width="18" height="18"/>
+        <image name="youtube" width="32" height="32"/>
     </resources>
 </document>

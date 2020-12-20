@@ -38,7 +38,7 @@ final class CategoryViewController: UIViewController, BindableType {
     
     // Mark: - Data
     func bindViewModel() {
-        let useCase = CategoryUseCase()
+        let useCase = CategoryUseCase() 
         let categoryNavigator = CategoryNavigator(navigationController: navigationController!)
         let viewModel = CategoryViewModel(navigator: categoryNavigator, useCase: useCase)
         
