@@ -31,3 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    private func gotoLoginScreen() {
+        
+    }
+}
