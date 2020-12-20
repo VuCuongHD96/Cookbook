@@ -13,13 +13,29 @@ import RxDataSources
 
 protocol MealDetailUseCaseType {
     func getMeal(meal: Meal) -> Observable<[Meal]>
+    func saveMeal(meal: Meal)
+    func getHeartOrange() -> String
+    func openYoutube(with urlString: String) 
 }
 
 struct MealDetailUseCase: MealDetailUseCaseType {
-    
     func getMeal(meal: Meal) -> Observable<[Meal]> {
         let request = MealRequest(id: meal.id)
         let repository = MealRepository()
         return repository.getMeals(input: request)
+    }
+    
+    func saveMeal(meal: Meal) {
+        print("Save Meal")
+    }
+    
+    func getHeartOrange() -> String {
+        let imageName = "FavoriteOrange"
+        return imageName
+    }
+    
+    func openYoutube(with urlString: String) {
+        let url = URL(string: urlString)
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
 }

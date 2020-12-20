@@ -11,6 +11,7 @@ import Reusable
 import RxCocoa
 import RxSwift
 import RxDataSources
+import MagicalRecord
 
 final class CategoryDetailViewController: UIViewController, BindableType {
     

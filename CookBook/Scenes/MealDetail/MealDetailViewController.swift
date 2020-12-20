@@ -20,6 +20,9 @@ final class MealDetailViewController: UIViewController, BindableType {
     @IBOutlet private weak var mealImageView: UIImageView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
+    @IBOutlet private weak var categoryLabel: UILabel!
+    @IBOutlet private weak var mealNameLabel: UILabel!
+    @IBOutlet private weak var youtubeButton: UIButton!
     
     // MARK: - Properties
     var viewModel: MealDetailViewModel!
@@ -48,11 +51,17 @@ final class MealDetailViewController: UIViewController, BindableType {
     
     func bindViewModel() {
         let input = MealDetailViewModel.Input(loadTrigger: Driver.just(Void()),
-                                              backTrigger: backButton.rx.tap.asDriver())
+                                              backTrigger: backButton.rx.tap.asDriver(),
+                                              favoriteTrigger: favoriteButton.rx.tap.asDriver(),
+                                              youtubeTrigger: youtubeButton.rx.tap.asDriver())
         let output = viewModel.transform(input)
         
         output.mealName
-            .drive(navigationItem.rx.title)
+            .drive(mealNameLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        output.mealCategory
+            .drive(categoryLabel.rx.text)
             .disposed(by: rx.disposeBag)
         
         output.mealImage
@@ -88,6 +97,14 @@ final class MealDetailViewController: UIViewController, BindableType {
         output.sections
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
+        
+        output.favorited
+            .drive(favoriteBinding)
+            .disposed(by: rx.disposeBag)
+        
+        output.openYoutube
+            .drive()
+            .disposed(by: rx.disposeBag)
     }
 }
 
@@ -99,6 +116,13 @@ extension MealDetailViewController {
                 guard let self = self else { return }
                 self.mealImageView.hideSkeleton()
             }
+        }
+    }
+    
+    var favoriteBinding: Binder<String> {
+        return Binder(self) { viewcontroller, imageName in
+            let image = UIImage(named: imageName)
+            viewcontroller.favoriteButton.setImage(image, for: .normal)
         }
     }
 }

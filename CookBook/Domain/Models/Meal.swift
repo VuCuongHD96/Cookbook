@@ -31,6 +31,7 @@ struct Meal {
     var area: String
     var category: String
     var instructions: String
+    var youtubeURL: String
     var resources: [FoodResource]
 }
 
@@ -58,6 +59,7 @@ extension Meal {
             area: "",
             category: "",
             instructions: "",
+            youtubeURL: "",
             resources: [FoodResource]()
         )
     }
@@ -81,6 +83,7 @@ extension Meal: BaseModel {
         category <- map["strCategory"]
         instructions <- map["strInstructions"]
         imageString <- map["strMealThumb"]
+        youtubeURL <- map["strYoutube"]
         (1...Constants.endArray).forEach { index in
             var ingredient = ""
             var measure = ""

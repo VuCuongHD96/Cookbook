@@ -21,14 +21,19 @@ extension MealDetailViewModel: ViewModelType {
     struct Input {
         var loadTrigger: Driver<Void>
         var backTrigger: Driver<Void>
+        var favoriteTrigger: Driver<Void>
+        var youtubeTrigger: Driver<Void>
     }
     
     struct Output {
         var mealName: Driver<String>
+        var mealCategory: Driver<String>
         var meal: Driver<Meal>
         var mealImage: Driver<String>
         var backed: Driver<Void>
         var sections: Driver<[SectionDataMealDetail]>
+        var favorited: Driver<String>
+        var openYoutube: Driver<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -48,7 +53,11 @@ extension MealDetailViewModel: ViewModelType {
         
         let mealName = meal.map { meal -> String in
                 meal.name
-        }
+        }.startWith("Meal Name")
+        
+        let mealCategory = meal.map { meal -> String in
+            meal.category
+        }.startWith("Meal Category")
         
         let mealImage = meal
             .map { meal -> String in
@@ -67,10 +76,29 @@ extension MealDetailViewModel: ViewModelType {
         }
         .asDriver()
         
+        let favorited = input.favoriteTrigger
+            .withLatestFrom(meal)
+            .do(onNext: { meal in
+                self.useCase.saveMeal(meal: meal)
+            })
+            .map { _ in
+                self.useCase.getHeartOrange()
+        }
+        
+        let openYoutube = input.youtubeTrigger
+            .withLatestFrom(meal)
+            .do(onNext: { meal in
+                self.useCase.openYoutube(with: meal.youtubeURL)
+            })
+            .mapToVoid()
+        
         return Output(mealName: mealName,
+                      mealCategory: mealCategory,
                       meal: meal,
                       mealImage: mealImage,
                       backed: backed,
-                      sections: sections)
+                      sections: sections,
+                      favorited: favorited,
+                      openYoutube: openYoutube)
     }
 }
