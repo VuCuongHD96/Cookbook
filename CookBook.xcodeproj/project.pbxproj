@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1059FDDC2598D19A00FF4161 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1059FDD92598D19A00FF4161 /* AppNavigator.swift */; };
+		1059FDDD2598D19A00FF4161 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1059FDDA2598D19A00FF4161 /* AppViewModel.swift */; };
+		1059FDDE2598D19A00FF4161 /* AppUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1059FDDB2598D19A00FF4161 /* AppUseCase.swift */; };
 		10EDCAFF2573DFC800A62271 /* SectionDataMealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EDCAFE2573DFC800A62271 /* SectionDataMealDetail.swift */; };
 		4C12BA54256F40540017607F /* MealDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12BA53256F40540017607F /* MealDetailNavigator.swift */; };
 		4C12BA56256F40A00017607F /* MealDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12BA55256F40A00017607F /* MealDetailUseCase.swift */; };
@@ -61,6 +64,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1059FDD92598D19A00FF4161 /* AppNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
+		1059FDDA2598D19A00FF4161 /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		1059FDDB2598D19A00FF4161 /* AppUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUseCase.swift; sourceTree = "<group>"; };
 		10EDCAFE2573DFC800A62271 /* SectionDataMealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataMealDetail.swift; sourceTree = "<group>"; };
 		4C12BA53256F40540017607F /* MealDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailNavigator.swift; sourceTree = "<group>"; };
 		4C12BA55256F40A00017607F /* MealDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailUseCase.swift; sourceTree = "<group>"; };
@@ -130,6 +136,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1059FDD82598D19A00FF4161 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1059FDD92598D19A00FF4161 /* AppNavigator.swift */,
+				1059FDDA2598D19A00FF4161 /* AppViewModel.swift */,
+				1059FDDB2598D19A00FF4161 /* AppUseCase.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		4C12BA5B256FB6940017607F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +297,7 @@
 		4C21904C2546C8BD00173699 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1059FDD82598D19A00FF4161 /* App */,
 				4C4710B2257F9751008D4A7B /* Favorite */,
 				4C6EB692254A59C0002037DA /* MealDetail */,
 				4C21904E2546CB9000173699 /* StoryBoards */,
@@ -529,14 +546,17 @@
 				4C2190422546C4E300173699 /* CategoryRequest.swift in Sources */,
 				4C21905E2546CDA900173699 /* CategoryUseCase.swift in Sources */,
 				4CB8C5A225480952008F7F59 /* Meal.swift in Sources */,
+				1059FDDE2598D19A00FF4161 /* AppUseCase.swift in Sources */,
 				4C2190142546C4C900173699 /* AppDelegate.swift in Sources */,
 				4CB8C59C2548008B008F7F59 /* CategoryDetailUseCase.swift in Sources */,
 				4CC3A5FB25776C7A00C2BA7D /* InstructionTableViewCell.swift in Sources */,
 				4C21905C2546CCEE00173699 /* CategoryNavigator.swift in Sources */,
 				4C2190432546C4E300173699 /* ErrorResponse.swift in Sources */,
 				4CB8C5992547FE85008F7F59 /* CategoryDetailViewModel.swift in Sources */,
+				1059FDDC2598D19A00FF4161 /* AppNavigator.swift in Sources */,
 				4C12BA5A256F5CD80017607F /* MealDetailViewModel.swift in Sources */,
 				4C2190472546C4E300173699 /* Category.swift in Sources */,
+				1059FDDD2598D19A00FF4161 /* AppViewModel.swift in Sources */,
 				4CB8C59E2548034F008F7F59 /* MealByCategoryRequest.swift in Sources */,
 				4C21904A2546C4E300173699 /* URLs.swift in Sources */,
 				4C12BA56256F40A00017607F /* MealDetailUseCase.swift in Sources */,
