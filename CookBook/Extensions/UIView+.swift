@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-
+    
     @IBInspectable var cornerRadiusV: CGFloat {
         get {
             return layer.cornerRadius
@@ -19,7 +19,7 @@ extension UIView {
             layer.masksToBounds = newValue > 0
         }
     }
-
+    
     @IBInspectable var borderWidthV: CGFloat {
         get {
             return layer.borderWidth
@@ -28,7 +28,7 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
-
+    
     @IBInspectable var borderColorV: UIColor? {
         get {
             return UIColor(cgColor: layer.borderColor!)
@@ -36,5 +36,21 @@ extension UIView {
         set {
             layer.borderColor = newValue?.cgColor
         }
+    }
+}
+
+extension UIView {
+    func setGradientColor(colorOne: UIColor?, colorTwo: UIColor?, orientation: GradientOrientation) {
+        guard let cgColorOne = colorOne?.cgColor,
+            let cgColorTwo = colorTwo?.cgColor else {
+                return
+        }
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [cgColorOne, cgColorTwo]
+        let arrayPoint = orientation.getPoints()
+        gradientLayer.startPoint = arrayPoint[0]
+        gradientLayer.endPoint = arrayPoint[1]
+        gradientLayer.frame = bounds
+        layer.insertSublayer(gradientLayer, at:0)
     }
 }

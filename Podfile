@@ -8,15 +8,15 @@ target 'CookBook' do
   # Pods for CookBook
 
     # Clean Architecture
-    	pod 'MGArchitecture'
+  pod 'MGArchitecture'
 
     # Core
-     	pod 'ObjectMapper'
-    	pod 'Reusable'
-    	pod 'Then'
+  pod 'ObjectMapper'
+  pod 'Reusable'
+  pod 'Then'
 
     # Rx
-    	pod 'NSObject+Rx'
+  pod 'NSObject+Rx'
 	pod 'RxDataSources', '~> 4.0'
 
     # UI

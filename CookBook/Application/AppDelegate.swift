@@ -7,21 +7,24 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         return true
     }
     
     private func bindViewModel() {
-        guard let window = window else { return }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else {
+            return
+        }
         let navigator = AppNavigator(window: window)
         let useCase = AppUseCase()
         let viewModel = AppViewModel(navigator: navigator, useCase: useCase)

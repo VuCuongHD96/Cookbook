@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +20,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+//        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else {
+            return
+        }
+        let navigator = AppNavigator(window: window)
+        let useCase = AppUseCase()
+        let viewModel = AppViewModel(navigator: navigator, useCase: useCase)
+        
+        let input = AppViewModel.Input(loadTrigger: Driver.just(Void()))
+        let output = viewModel.transform(input)
+        output.toMain
+            .drive()
+            .disposed(by: rx.disposeBag)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

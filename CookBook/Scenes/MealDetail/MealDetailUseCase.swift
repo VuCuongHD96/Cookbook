@@ -35,7 +35,7 @@ struct MealDetailUseCase: MealDetailUseCaseType {
     }
     
     func openYoutube(with urlString: String) {
-        let url = URL(string: urlString)
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        guard let url = URL(string: urlString) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

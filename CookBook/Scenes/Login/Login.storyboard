@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ppb-QL-gqu">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="2Wy-Oy-des">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ppb-QL-gqu" customClass="LoginViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YgA-6c-1GM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elW-fU-BVf">
+                                <rect key="frame" x="140.5" y="144" width="94.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good to see you again" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yA8-6U-dkq">
+                                <rect key="frame" x="102" y="192" width="171" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-nv-mw6" customClass="MarginLeftTextField" customModule="CookBook" customModuleProvider="target">
+                                <rect key="frame" x="16" y="400" width="343" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot your password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNg-HJ-C6N">
+                                <rect key="frame" x="16" y="552" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxG-2I-ZNM">
+                                <rect key="frame" x="16" y="480" width="343" height="48"/>
+                                <state key="normal" title="LOG IN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sPm-QA-QqW" customClass="MarginLeftTextField" customModule="CookBook" customModuleProvider="target">
+                                <rect key="frame" x="16" y="336" width="343" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jxG-2I-ZNM" firstAttribute="top" secondItem="ZWd-nv-mw6" secondAttribute="bottom" constant="32" id="3YT-cE-51P"/>
+                            <constraint firstItem="sPm-QA-QqW" firstAttribute="leading" secondItem="FWF-7I-gAI" secondAttribute="leading" constant="16" id="4Jt-Ia-xrO"/>
+                            <constraint firstItem="ZWd-nv-mw6" firstAttribute="trailing" secondItem="sPm-QA-QqW" secondAttribute="trailing" id="4wt-5l-hkP"/>
+                            <constraint firstItem="UNg-HJ-C6N" firstAttribute="top" secondItem="YgA-6c-1GM" secondAttribute="centerY" multiplier="1104/667" id="Dr5-vJ-UOz"/>
+                            <constraint firstItem="yA8-6U-dkq" firstAttribute="centerX" secondItem="YgA-6c-1GM" secondAttribute="centerX" id="GKt-o4-Skj"/>
+                            <constraint firstItem="yA8-6U-dkq" firstAttribute="top" secondItem="YgA-6c-1GM" secondAttribute="centerY" multiplier="384/667" id="LWy-1g-EXA"/>
+                            <constraint firstItem="elW-fU-BVf" firstAttribute="top" secondItem="YgA-6c-1GM" secondAttribute="centerY" multiplier="288/667" id="VKR-4k-DIU"/>
+                            <constraint firstItem="ZWd-nv-mw6" firstAttribute="top" secondItem="sPm-QA-QqW" secondAttribute="bottom" constant="16" id="ZBS-t9-Yb8"/>
+                            <constraint firstItem="UNg-HJ-C6N" firstAttribute="leading" secondItem="ZWd-nv-mw6" secondAttribute="leading" id="baj-p6-5yc"/>
+                            <constraint firstItem="elW-fU-BVf" firstAttribute="centerX" secondItem="YgA-6c-1GM" secondAttribute="centerX" id="c07-FI-hpX"/>
+                            <constraint firstItem="FWF-7I-gAI" firstAttribute="trailing" secondItem="sPm-QA-QqW" secondAttribute="trailing" constant="16" id="cO9-a4-Kh0"/>
+                            <constraint firstItem="elW-fU-BVf" firstAttribute="height" secondItem="YgA-6c-1GM" secondAttribute="height" multiplier="48/667" id="hPH-bo-ben"/>
+                            <constraint firstItem="ZWd-nv-mw6" firstAttribute="leading" secondItem="sPm-QA-QqW" secondAttribute="leading" id="lVT-GM-fqv"/>
+                            <constraint firstItem="jxG-2I-ZNM" firstAttribute="trailing" secondItem="ZWd-nv-mw6" secondAttribute="trailing" id="m5R-8v-sfx"/>
+                            <constraint firstItem="jxG-2I-ZNM" firstAttribute="height" secondItem="ZWd-nv-mw6" secondAttribute="height" id="mQu-3U-fXC"/>
+                            <constraint firstItem="jxG-2I-ZNM" firstAttribute="leading" secondItem="ZWd-nv-mw6" secondAttribute="leading" id="qD0-Hs-Bq3"/>
+                            <constraint firstItem="sPm-QA-QqW" firstAttribute="height" secondItem="YgA-6c-1GM" secondAttribute="height" multiplier="48/667" id="vYL-jz-Zcf"/>
+                            <constraint firstItem="sPm-QA-QqW" firstAttribute="top" secondItem="YgA-6c-1GM" secondAttribute="centerY" multiplier="672/667" id="xLJ-5E-UMg"/>
+                            <constraint firstItem="UNg-HJ-C6N" firstAttribute="trailing" secondItem="ZWd-nv-mw6" secondAttribute="trailing" id="xch-Dd-YyD"/>
+                            <constraint firstItem="ZWd-nv-mw6" firstAttribute="height" secondItem="sPm-QA-QqW" secondAttribute="height" id="zZf-aP-7d6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FWF-7I-gAI"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="sPm-QA-QqW" id="QuV-SS-J6c"/>
+                        <outlet property="loginButton" destination="jxG-2I-ZNM" id="Gvq-J0-9Ey"/>
+                        <outlet property="passTextField" destination="ZWd-nv-mw6" id="ux3-50-cPO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RsP-vf-RYo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-64.799999999999997" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>

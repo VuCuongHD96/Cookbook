@@ -29,7 +29,7 @@ extension AppViewModel {
         
         let toMain = input.loadTrigger
             .do(onNext: { _ in
-                self.navigator.toMain()
+                self.navigator.toLogin()
             })
         
         return Output(

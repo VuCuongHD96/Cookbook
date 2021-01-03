@@ -11,19 +11,18 @@ import RxSwift
 import RxCocoa
 
 protocol AppNavigatorType {
-    func toMain()
+    func toLogin()
 }
 
 struct AppNavigator: AppNavigatorType {
     unowned let window: UIWindow
     
-    func toMain() {
-        let viewController = CategoryViewController.instantiate()
+    func toLogin() {
+        let viewController = LoginViewController.instantiate()
         let navigationController = UINavigationController(rootViewController: viewController)
-        let navigator = CategoryNavigator(navigationController: navigationController)
-        let useCase = CategoryUseCase()
-        let viewModel = CategoryViewModel(navigator: navigator, useCase: useCase)
-        
+        let useCase = LoginUseCase()
+        let navigator = LoginNavigator(navigationController: navigationController)
+        let viewModel = LoginViewModel(navigator: navigator, useCase: useCase)
         viewController.bindViewModel(to: viewModel)
         window.rootViewController = navigationController
     }
