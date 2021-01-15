@@ -8,6 +8,8 @@
 
 import UIKit
 import Reusable
+import RxCocoa
+import RxSwift
 
 final class HomeViewController: UITabBarController, BindableType {
     
@@ -16,26 +18,15 @@ final class HomeViewController: UITabBarController, BindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupItemViewController()
-        setupView()
     }
     
     func bindViewModel() {
-        print("ddddd")
-    }
-
-    private func setupItemViewController() {
-        guard let navigationController = navigationController else {
-            return
-        }
+        let input = HomeViewModel.Input(loadTrigger: Driver.just(Void()))
         
+        let output = viewModel.transform(input)
         
-        let controllers = [categoryViewController]
-        viewControllers = controllers
-    }
-    
-    private func setupView() {
-        
+        let categoryScreen = output.categoryScreen
+        viewControllers = [categoryScreen]
     }
 }
 
