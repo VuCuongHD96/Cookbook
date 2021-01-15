@@ -25,7 +25,6 @@ final class CategoryViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        bindViewModel()
     }
     
     // MARK: - Views
@@ -38,10 +37,6 @@ final class CategoryViewController: UIViewController, BindableType {
     
     // Mark: - Data
     func bindViewModel() {
-        let useCase = CategoryUseCase() 
-        let categoryNavigator = CategoryNavigator(navigationController: navigationController!)
-        let viewModel = CategoryViewModel(navigator: categoryNavigator, useCase: useCase)
-        
         let input = CategoryViewModel.Input(loadTrigger: Driver.just(Void()),
                                             selectTrigger: tableView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input)
