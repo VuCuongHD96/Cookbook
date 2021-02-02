@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HomeNavigatorType {
-    func getCategoryScreen() -> UIViewController 
+    func getCategoryScreen() -> UIViewController
 }
 
 struct HomeNavigator: HomeNavigatorType {
