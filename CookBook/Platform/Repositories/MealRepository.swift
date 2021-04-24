@@ -24,14 +24,7 @@ class MealRepository: MealRepositoryType {
                 return response.meals
         }
     }
-    
-//    func getMeal(input: MealRequest) -> Observable<Meal> {
-//        return api.request(input: input)
-//            .map { (response: MealResponse) -> Meal in
-//                return response.meal
-//        }
-//    }
-    
+
     func getMeals(input: MealRequest) -> Observable<[Meal]> {
         return api.request(input: input)
             .map { (response: MealResponse) -> [Meal] in

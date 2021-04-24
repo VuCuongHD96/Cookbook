@@ -12,6 +12,7 @@ import RxCocoa
 
 protocol AppNavigatorType {
     func toLogin()
+    func toCategory()
 }
 
 struct AppNavigator: AppNavigatorType {
@@ -23,6 +24,16 @@ struct AppNavigator: AppNavigatorType {
         let useCase = LoginUseCase()
         let navigator = LoginNavigator(navigationController: navigationController)
         let viewModel = LoginViewModel(navigator: navigator, useCase: useCase)
+        viewController.bindViewModel(to: viewModel)
+        window.rootViewController = navigationController
+    }
+    
+    func toCategory() {
+        let viewController = CategoryViewController.instantiate()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let useCase = CategoryUseCase()
+        let navigator = CategoryNavigator(navigationController: navigationController)
+        let viewModel = CategoryViewModel(navigator: navigator, useCase: useCase)
         viewController.bindViewModel(to: viewModel)
         window.rootViewController = navigationController
     }

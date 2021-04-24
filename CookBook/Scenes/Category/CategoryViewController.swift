@@ -32,6 +32,7 @@ final class CategoryViewController: UIViewController, BindableType {
         tableView.do {
             $0.rowHeight = 300
             $0.register(cellType: CategoryCell.self)
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
