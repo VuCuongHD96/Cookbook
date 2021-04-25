@@ -31,20 +31,20 @@ struct APIService {
                 .responseJSON { response in
                     switch response.result {
                     case .success(let value):
-                        if let statusCode = response.response?.statusCode {
-                            if statusCode == 200 {
-                                if let object = Mapper<T>().map(JSONObject: value) {
-                                    observer.onNext(object)
-                                }
-                            } else {
-                                if let object = Mapper<ErrorResponse>().map(JSONObject: value) {
-                                    observer.onError(BaseError.apiFailure(error: object))
-                                } else {
-                                    observer.onError(BaseError.httpError(httpCode: statusCode))
-                                }
+                        guard let statusCode = response.response?.statusCode else {
+                            observer.on(.error(BaseError.unexpectedError))
+                            return
+                        }
+                        if statusCode == 200 {
+                            if let object = Mapper<T>().map(JSONObject: value) {
+                                observer.onNext(object)
                             }
                         } else {
-                            observer.on(.error(BaseError.unexpectedError))
+                            if let object = Mapper<ErrorResponse>().map(JSONObject: value) {
+                                observer.onError(BaseError.apiFailure(error: object))
+                            } else {
+                                observer.onError(BaseError.httpError(httpCode: statusCode))
+                            }
                         }
                         observer.onCompleted()
                         
