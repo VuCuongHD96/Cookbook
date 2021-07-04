@@ -16,15 +16,16 @@ target 'CookBook' do
   pod 'Then'
 
     # Rx
-  pod 'NSObject+Rx'
-	pod 'RxDataSources', '~> 4.0'
+        pod 'RxSwift', '~> 4.5.0'
+  	pod 'NSObject+Rx'
+	pod 'RxDataSources'
 
     # UI
-	pod 'SDWebImage'
-	pod 'SkeletonView'
+	pod 'SDWebImage', '~> 5.8.1'
+	pod 'SkeletonView', '~> 1.4.1'
 
     #API
-	pod 'Alamofire'
+	pod 'Alamofire', '~> 5.0.0-rc.3'
 
     #Database
 	pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord'
